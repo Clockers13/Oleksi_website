@@ -1,5 +1,302 @@
 {% extends "base.html" %}
+
 {% block content %}
-<h1>Контакты</h1>
-<p>Ваши контактные данные и форма обратной связи будут здесь.</p>
+
+<style>
+    /* --- Стили для страницы Контактов --- */
+    :root {
+        --primary-color: #2c3e50; /* Темно-синий */
+        --accent-color: #e67e22;  /* Оранжевый */
+        --success-color: #25d366; /* Цвет WhatsApp */
+        --bg-color: #f8f9fa;
+        --card-bg: #ffffff;
+        --text-color: #333;
+    }
+
+    .contact-page-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 20px;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .contact-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .contact-header h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+
+    .contact-header p {
+        color: #666;
+        font-size: 1.1rem;
+    }
+
+    /* Основная сетка */
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr; /* Левая колонка чуть уже */
+        gap: 40px;
+        align-items: start;
+    }
+
+    /* Левая колонка: Информация */
+    .contact-info-card {
+        background: var(--primary-color);
+        color: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(44, 62, 80, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Декоративный круг на фоне */
+    .contact-info-card::after {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 50%;
+    }
+
+    .info-item {
+        margin-bottom: 30px;
+    }
+
+    .info-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.7;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .info-value {
+        font-size: 1.3rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .info-value a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.3s;
+    }
+    
+    .info-value a:hover {
+        opacity: 0.8;
+    }
+
+    /* Кнопки связи */
+    .btn-contact {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-bottom: 15px;
+        transition: transform 0.2s;
+    }
+
+    .btn-contact:hover {
+        transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+        background-color: var(--success-color);
+        color: white;
+        box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-email {
+        background-color: rgba(255,255,255,0.1);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Блок языков */
+    .languages-block {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .lang-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .lang-tag {
+        background: rgba(255,255,255,0.15);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Правая колонка: Форма */
+    .contact-form-card {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid #eee;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #eee;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+        box-sizing: border-box; /* Важно для отступов */
+        font-family: inherit;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--accent-color);
+    }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .btn-submit {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    .btn-submit:hover {
+        background-color: #d35400;
+    }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+        .contact-info-card {
+            order: 2; /* На мобильном контакты под формой, или наоборот - как хотите. Сейчас под формой. */
+        }
+        .contact-form-card {
+            order: 1;
+        }
+        .contact-header h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<div class="contact-page-container">
+    
+    <div class="contact-header">
+        <h1>Свяжитесь со мной</h1>
+        <p>Готов обсудить ваш строительный проект в Португалии. <br>Консультации, выезд на объект, оценка смет.</p>
+    </div>
+
+    <div class="contact-grid">
+        
+        <!-- Левая колонка: Прямые контакты -->
+        <div class="contact-info-card">
+            <h2 style="margin-top:0; font-size: 1.8rem;">Oleksii Brik</h2>
+            <p style="opacity: 0.8; margin-bottom: 30px;">Engenheiro Civil / Инженер-строитель</p>
+
+            <a href="https://wa.me/351912108461" class="btn-contact btn-whatsapp" target="_blank">
+                📱 Написать в WhatsApp
+            </a>
+            
+            <a href="tel:+351912108461" class="btn-contact btn-email" style="background: rgba(255,255,255,0.2); border:none;">
+                📞 Позвонить: +351 912 108 461
+            </a>
+
+            <div class="info-item" style="margin-top: 30px;">
+                <span class="info-label">Email</span>
+                <span class="info-value">
+                    <a href="mailto:alexe7abc@gmail.com">alexe7abc@gmail.com</a>
+                </span>
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">Локация</span>
+                <span class="info-value">Lisboa / Portugal</span>
+            </div>
+
+            <div class="languages-block">
+                <span class="info-label">Языки общения</span>
+                <ul class="lang-list">
+                    <li class="lang-tag">🇺🇦 Украинский</li>
+                    <li class="lang-tag">🇷🇺 Русский</li>
+                    <li class="lang-tag">🇵🇹 Português (B2)</li>
+                    <li class="lang-tag">🇬🇧 English (B2)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Правая колонка: Форма -->
+        <div class="contact-form-card">
+            <h3 style="margin-top:0; color: var(--primary-color); margin-bottom: 20px;">Оставить заявку</h3>
+            <form action="#" method="post">
+                
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Как к вам обращаться?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон / WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="+351 ..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Опишите задачу</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Нужен технадзор при постройке виллы..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Отправить сообщение</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}
