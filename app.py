@@ -10,13 +10,10 @@ app = Flask(__name__)
 
 # --- КОНФИГУРАЦИЯ (Берется из файла .env) ---
 # Secret Key нужен для работы flash-сообщений (уведомлений об успехе)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-
-# Настройки почты Gmail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_PORT'] = 587          # Было 465
+app.config['MAIL_USE_TLS'] = True      # Включаем TLS
+app.config['MAIL_USE_SSL'] = False     # Выключаем SSL
 app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 # Если вдруг email не отправляется, вывод ошибок поможет понять почему
