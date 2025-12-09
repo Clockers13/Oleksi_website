@@ -1,0 +1,167 @@
+/* static/contacts.css */
+
+/* Контейнер страницы */
+.contact-page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 80px; /* Отступы */
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.contact-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Сетка (Grid) */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Левая карточка (Информация) */
+.contact-info-card {
+    background: #2c3e50; /* Темно-синий */
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info-card h2 {
+    color: white !important; /* Принудительно белый */
+}
+
+.contact-info-card::after {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 150px; height: 150px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Элементы инфо */
+.info-item { margin-bottom: 30px; }
+
+.info-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.info-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.info-value a { color: white; text-decoration: none; }
+
+/* Кнопки */
+.btn-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: transform 0.2s;
+    color: white;
+}
+.btn-contact:hover { transform: translateY(-2px); color: white; }
+
+.btn-whatsapp {
+    background-color: #25d366; /* WhatsApp Green */
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-email {
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Языки */
+.languages-block {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.lang-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; gap: 10px;
+}
+.lang-tag {
+    background: rgba(255,255,255,0.15);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Правая карточка (Форма) */
+.contact-form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label {
+    display: block; margin-bottom: 8px;
+    color: #2c3e50; font-weight: 600;
+}
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Важно! */
+}
+.form-control:focus {
+    outline: none; border-color: #e67e22;
+}
+textarea.form-control { min-height: 120px; resize: vertical; }
+
+.btn-submit {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+.btn-submit:hover { background-color: #d35400; }
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-info-card { order: 2; }
+    .contact-form-card { order: 1; }
+    .contact-page-container { padding: 20px 15px; }
+}
