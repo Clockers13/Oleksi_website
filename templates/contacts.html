@@ -227,6 +227,10 @@
     }
 </style>
 
+{% extends "base.html" %}
+
+{% block content %}
+
 <div class="contact-page-container">
     
     <div class="contact-header">
@@ -275,11 +279,19 @@
         <!-- Правая колонка: Форма -->
         <div class="contact-form-card">
             <h3 style="margin-top:0; color: var(--primary-color); margin-bottom: 20px;">Оставить заявку</h3>
-            <form action="#" method="post">
+            
+            <!-- ВАЖНО: Здесь стоит ваша ссылка Formspree -->
+            <form action="https://formspree.io/f/xvgebygr" method="POST">
                 
                 <div class="form-group">
                     <label for="name">Ваше имя</label>
                     <input type="text" id="name" name="name" class="form-control" placeholder="Как к вам обращаться?" required>
+                </div>
+
+                <!-- Добавил name="email" — Formspree любит, когда есть email для ответа -->
+                <div class="form-group">
+                    <label for="email">Ваш Email (для ответа)</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="example@gmail.com" required>
                 </div>
 
                 <div class="form-group">
