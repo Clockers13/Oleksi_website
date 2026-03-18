@@ -20,8 +20,6 @@ def projects():
 
 @app.route('/contacts')
 def contacts():
-    # Теперь мы просто показываем страницу. 
-    # Обработку формы берет на себя Formspree (через action в HTML).
     return render_template('contacts.html', title="Контакты")
 
 if __name__ == "__main__":
