@@ -2,76 +2,158 @@
 
 {% block content %}
 
-<!-- Hero Section -->
+<!-- HERO -->
 <div class="hero-section">
+
     <div class="hero-content">
-        <span class="hero-tag">Португалия • Лиссабон</span>
-        <h1 class="hero-title">Инженер-строитель<br>Oleksii Brik</h1>
+
+        <span class="hero-tag">
+            {{ t.hero_location if t.hero_location else "Portugal • Lisbon" }}
+        </span>
+
+        <h1 class="hero-title">
+            {{ t.hero_title if t.hero_title else "Civil Engineer" }}<br>
+            Oleksii Brik
+        </h1>
+
         <p class="hero-subtitle">
-            Профессиональное управление строительством, технический надзор и лицензирование.<br>
-            25 лет опыта. Член Ordem dos Engenheiros.
+            {{ t.hero_subtitle if t.hero_subtitle else
+            "Construction management, supervision and licensing. 25+ years of experience. Member of Ordem dos Engenheiros." }}
         </p>
+
         <div class="btn-group">
-            <a href="{{ url_for('contacts') }}" class="btn btn-primary">Получить консультацию</a>
-            <a href="{{ url_for('projects') }}" class="btn btn-outline">Смотреть проекты</a>
+
+            <a href="{{ url_for('contacts', lang=lang) }}"
+               class="btn btn-primary">
+
+                {{ t.hero_cta_contact if t.hero_cta_contact else "Get Consultation" }}
+
+            </a>
+
+            <a href="{{ url_for('projects', lang=lang) }}"
+               class="btn btn-outline">
+
+                {{ t.hero_cta_projects if t.hero_cta_projects else "View Projects" }}
+
+            </a>
+
         </div>
+
     </div>
 </div>
 
-<!-- Преимущества (поднимаются на Hero) -->
+<!-- FEATURES -->
 <div class="features-grid">
+
     <div class="feature-card">
         <span class="feature-icon">📜</span>
-        <h3>Лицензия</h3>
-        <p>Официальный статус <strong>Membro da OE</strong>. Право подписи (Termo de Responsabilidade).</p>
+        <h3>{{ t.feature_license_title if t.feature_license_title else "License" }}</h3>
+        <p>
+            {{ t.feature_license_text if t.feature_license_text else
+            "Official member of Ordem dos Engenheiros with right to sign technical responsibility declarations." }}
+        </p>
     </div>
+
     <div class="feature-card">
         <span class="feature-icon">🏗</span>
-        <h3>Опыт 25+ лет</h3>
-        <p>От прораба до главного инженера (СС3). Опыт строительства заводов и ТРЦ.</p>
+        <h3>{{ t.feature_experience_title if t.feature_experience_title else "Experience 25+ years" }}</h3>
+        <p>
+            {{ t.feature_experience_text if t.feature_experience_text else
+            "From site manager to chief engineer. Experience in industrial and commercial construction." }}
+        </p>
     </div>
+
     <div class="feature-card">
         <span class="feature-icon">🗣</span>
-        <h3>Коммуникация</h3>
-        <p>Свободный Русский/Украинский. Португальский (B1) для решения вопросов с властями.</p>
+        <h3>{{ t.feature_lang_title if t.feature_lang_title else "Communication" }}</h3>
+        <p>
+            {{ t.feature_lang_text if t.feature_lang_text else
+            "Russian, Ukrainian, English and Portuguese for working with clients and authorities." }}
+        </p>
     </div>
+
 </div>
 
-<!-- Превью Услуг -->
+<!-- SERVICES PREVIEW -->
 <div class="section-preview">
-    <h2>Чем я могу быть полезен?</h2>
+
+    <h2>
+        {{ t.services_preview_title if t.services_preview_title else "How I can help you" }}
+    </h2>
+
     <div class="services-mini-grid">
-        
+
         <div class="service-mini">
-            <h4>👷‍♂️ Технадзор</h4>
-            <p>Контроль качества работ подрядчика. Защита ваших денег и нервов на стройке.</p>
-            <a href="{{ url_for('services') }}" class="arrow-link">Подробнее →</a>
+
+            <h4>👷‍♂️ {{ t.service_supervision if t.service_supervision else "Construction Supervision" }}</h4>
+
+            <p>
+                {{ t.service_supervision_text if t.service_supervision_text else
+                "Quality control of contractor work and protection of your budget." }}
+            </p>
+
+            <a href="{{ url_for('services', lang=lang) }}"
+               class="arrow-link">
+                {{ t.more if t.more else "More →" }}
+            </a>
+
         </div>
 
         <div class="service-mini">
-            <h4>🏗 Управление (Diretor de Obra)</h4>
-            <p>Полная организация процесса строительства от начала до сдачи ключей.</p>
-            <a href="{{ url_for('services') }}" class="arrow-link">Подробнее →</a>
+
+            <h4>🏗 {{ t.service_management if t.service_management else "Project Management" }}</h4>
+
+            <p>
+                {{ t.service_management_text if t.service_management_text else
+                "Full construction process management from start to handover." }}
+            </p>
+
+            <a href="{{ url_for('services', lang=lang) }}"
+               class="arrow-link">
+                {{ t.more if t.more else "More →" }}
+            </a>
+
         </div>
 
         <div class="service-mini">
-            <h4>📜 Документы</h4>
-            <p>Лицензирование, получение Alvará, коммуникация с Camara Municipal.</p>
-            <a href="{{ url_for('services') }}" class="arrow-link">Подробнее →</a>
+
+            <h4>📜 {{ t.service_docs if t.service_docs else "Documentation" }}</h4>
+
+            <p>
+                {{ t.service_docs_text if t.service_docs_text else
+                "Licensing, permits and communication with local authorities." }}
+            </p>
+
+            <a href="{{ url_for('services', lang=lang) }}"
+               class="arrow-link">
+                {{ t.more if t.more else "More →" }}
+            </a>
+
         </div>
 
     </div>
 </div>
 
-<!-- CTA Блок -->
+<!-- CTA -->
 <div class="cta-block">
-    <h2 style="margin-top: 0;">Планируете стройку или покупку недвижимости?</h2>
+
+    <h2 style="margin-top: 0;">
+        {{ t.cta_title if t.cta_title else "Planning construction or renovation?" }}
+    </h2>
+
     <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9;">
-        Не рискуйте бюджетом. Привлеките инженера на раннем этапе для оценки рисков и смет.
+        {{ t.cta_text if t.cta_text else
+        "Avoid risks and budget overruns by involving an engineer from the beginning." }}
     </p>
-    <a href="{{ url_for('contacts') }}" class="btn btn-primary" style="background: white; color: var(--primary-color);">
-        Связаться со мной
+
+    <a href="{{ url_for('contacts', lang=lang) }}"
+       class="btn btn-primary"
+       style="background: white; color: var(--primary-color);">
+
+        {{ t.cta_button if t.cta_button else "Contact Me" }}
+
     </a>
+
 </div>
 
 {% endblock %}

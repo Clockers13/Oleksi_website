@@ -2,67 +2,122 @@
 
 {% block content %}
 
-
 <div class="services-container">
-    
-    <!-- Шапка -->
+
+    <!-- HEADER -->
     <div class="services-header">
-        <h1>Услуги инженера-строителя</h1>
-        <p>Профессиональное сопровождение строительства и ремонта в Португалии. Работаю с частными клиентами и компаниями.</p>
+
+        <h1>
+            {{ t.services_title if t.services_title else "Construction Services" }}
+        </h1>
+
+        <p>
+            {{ t.services_subtitle if t.services_subtitle else
+            "Professional construction supervision and engineering services in Portugal for private clients and companies." }}
+        </p>
+
     </div>
 
     <div class="services-grid">
-        
-        <!-- Услуга 1 -->
+
+        <!-- SERVICE 1 -->
         <div class="service-card">
+
             <div class="icon-wrapper">👷‍♂️</div>
-            <h3>Технический надзор <br><span style="font-size:0.7em; opacity:0.7; font-weight:normal;">(Fiscalização de Obra)</span></h3>
-            <p class="service-desc">Защита ваших интересов на стройке. Я ваши глаза и уши.</p>
+
+            <h3>
+                {{ t.service_1_title if t.service_1_title else "Construction Supervision" }}
+                <br>
+                <span style="font-size:0.7em; opacity:0.7; font-weight:normal;">
+                    Fiscalização de Obra
+                </span>
+            </h3>
+
+            <p class="service-desc">
+                {{ t.service_1_desc if t.service_1_desc else
+                "Protection of your interests on construction site. I act as your technical representative." }}
+            </p>
+
             <ul>
-                <li>Контроль качества и сроков выполнения работ</li>
-                <li>Приемка скрытых работ и этапов</li>
-                <li>Проверка реальных объемов и смет</li>
-                <li><strong>Engenheiro fiscal</strong> (официальный статус)</li>
+                <li>{{ t.service_1_li_1 if t.service_1_li_1 else "Quality and deadline control" }}</li>
+                <li>{{ t.service_1_li_2 if t.service_1_li_2 else "Inspection of hidden works and stages" }}</li>
+                <li>{{ t.service_1_li_3 if t.service_1_li_3 else "Verification of volumes and budgets" }}</li>
+                <li><strong>Engenheiro fiscal</strong> (official role)</li>
             </ul>
+
         </div>
 
-        <!-- Услуга 2 -->
+        <!-- SERVICE 2 -->
         <div class="service-card">
+
             <div class="icon-wrapper">🏗</div>
-            <h3>Управление строительством <br><span style="font-size:0.7em; opacity:0.7; font-weight:normal;">(Diretor de Obra)</span></h3>
-            <p class="service-desc">Полная организация процесса: от котлована до сдачи ключей.</p>
+
+            <h3>
+                {{ t.service_2_title if t.service_2_title else "Construction Management" }}
+                <br>
+                <span style="font-size:0.7em; opacity:0.7; font-weight:normal;">
+                    Diretor de Obra
+                </span>
+            </h3>
+
+            <p class="service-desc">
+                {{ t.service_2_desc if t.service_2_desc else
+                "Full management of construction process from foundation to handover." }}
+            </p>
+
             <ul>
-                <li>Планирование, логистика и снабжение</li>
-                <li>Управление бригадами и субподрядчиками</li>
-                <li>Оперативные технические решения на площадке</li>
-                <li>Ответственность за безопасность и нормы</li>
+                <li>{{ t.service_2_li_1 if t.service_2_li_1 else "Planning, logistics and supply" }}</li>
+                <li>{{ t.service_2_li_2 if t.service_2_li_2 else "Team and subcontractor management" }}</li>
+                <li>{{ t.service_2_li_3 if t.service_2_li_3 else "On-site technical decisions" }}</li>
+                <li>{{ t.service_2_li_4 if t.service_2_li_4 else "Safety and compliance responsibility" }}</li>
             </ul>
+
         </div>
 
-        <!-- Услуга 3 -->
+        <!-- SERVICE 3 -->
         <div class="service-card">
+
             <div class="icon-wrapper">📜</div>
-            <h3>Лицензирование и Консалтинг</h3>
-            <p class="service-desc">Бюрократическая и юридическая чистота вашего объекта.</p>
+
+            <h3>
+                {{ t.service_3_title if t.service_3_title else "Licensing & Consulting" }}
+            </h3>
+
+            <p class="service-desc">
+                {{ t.service_3_desc if t.service_3_desc else
+                "Legal and administrative support for construction projects." }}
+            </p>
+
             <ul>
-                <li>Получение лицензий (Alvará, licenciamento)</li>
-                <li>Согласования (Comunicação prévia)</li>
-                <li>Технический аудит недвижимости перед покупкой</li>
-                <li>Сдача готовых объектов в эксплуатацию</li>
+                <li>{{ t.service_3_li_1 if t.service_3_li_1 else "Licenses (Alvará, licensing)" }}</li>
+                <li>{{ t.service_3_li_2 if t.service_3_li_2 else "Municipal approvals" }}</li>
+                <li>{{ t.service_3_li_3 if t.service_3_li_3 else "Technical property audit before purchase" }}</li>
+                <li>{{ t.service_3_li_4 if t.service_3_li_4 else "Project handover and certification" }}</li>
             </ul>
+
         </div>
 
-        <!-- Услуга 4 -->
+        <!-- SERVICE 4 -->
         <div class="service-card">
+
             <div class="icon-wrapper">🏠</div>
-            <h3>Проектирование и Реконструкция</h3>
-            <p class="service-desc">Вторая жизнь для исторических и старых зданий.</p>
+
+            <h3>
+                {{ t.service_4_title if t.service_4_title else "Design & Renovation" }}
+            </h3>
+
+            <p class="service-desc">
+                {{ t.service_4_desc if t.service_4_desc else
+                "Renovation and adaptation of residential and historical buildings." }}
+            </p>
+
             <ul>
-                <li>Ремонт и деликатная реновация</li>
-                <li>Расчет и усиление несущих конструкций</li>
-                <li>Подготовка полной рабочей документации</li>
-                <li>Повышение энергоэффективности зданий</li>
+                <li>{{ t.service_4_li_1 if t.service_4_li_1 else "Renovation and reconstruction" }}</li>
+                <li>{{ t.service_4_li_2 if t.service_4_li_2 else "Structural reinforcement calculations" }}</li>
+                <li>{{ t.service_4_li_3 if t.service_4_li_3 else "Technical documentation preparation" }}</li>
+                <li>{{ t.service_4_li_4 if t.service_4_li_4 else "Energy efficiency improvement" }}</li>
             </ul>
+
         </div>
 
     </div>

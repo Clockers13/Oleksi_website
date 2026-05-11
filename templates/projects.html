@@ -2,122 +2,195 @@
 
 {% block content %}
 
-
-
 <div class="projects-container">
 
-    <!-- Блок Герой -->
+    <!-- HERO -->
     <div class="hero-summary">
-        <h1>Профессиональный опыт</h1>
+
+        <h1>
+            {{ t.projects_title if t.projects_title else "Professional Experience" }}
+        </h1>
+
         <p>
-            Инженер-строитель с 25+ летним стажем. <br>
-            Член <strong>Ordem dos Engenheiros</strong> (Portugal). <br>
-            Прошел путь от прораба до собственника строительной компании и главного инженера проектов категории CC3.
+            {{ t.projects_intro if t.projects_intro else
+            "Civil engineer with 25+ years of experience. Member of Ordem dos Engenheiros (Portugal). Experience from site manager to chief engineer and company owner." }}
         </p>
+
     </div>
 
-    <!-- 1. Опыт в Португалии (Самое важное для клиента сейчас) -->
-    <h2 class="section-title">Реализованные проекты в Португалии</h2>
+    <!-- PORTUGAL PROJECTS -->
+    <h2 class="section-title">
+        {{ t.projects_portugal_title if t.projects_portugal_title else "Projects in Portugal" }}
+    </h2>
 
+    <!-- PROJECT 1 -->
     <div class="project-card">
+
         <div class="project-header">
-            <h3 class="project-title">Реконструкция исторического здания</h3>
-            <span class="project-role">Diretor de Obra / Engenheiro Fiscal</span>
-            <span class="project-loc">📍 Эшторил (Estoril) | 2023 — настоящее время</span>
+
+            <h3 class="project-title">
+                {{ t.project_1_title if t.project_1_title else "Historic Building Renovation" }}
+            </h3>
+
+            <span class="project-role">
+                Diretor de Obra / Engenheiro Fiscal
+            </span>
+
+            <span class="project-loc">
+                📍 Estoril | 2023 — {{ t.now if t.now else "present" }}
+            </span>
+
         </div>
+
         <div class="project-desc">
-            <p>Комплексная реконструкция 3-этажного исторического особняка площадью 900 м².</p>
+
+            <p>
+                {{ t.project_1_desc if t.project_1_desc else
+                "Full reconstruction of a 3-floor historic building with 900 m² area." }}
+            </p>
+
             <ul>
-                <li>Организация всех строительных процессов и управление бригадами.</li>
-                <li>Технический надзор и контроль качества работ.</li>
-                <li>Сохранение исторических элементов фасада с интеграцией современных коммуникаций.</li>
+                <li>{{ t.project_1_li_1 if t.project_1_li_1 else "Site management and coordination of teams." }}</li>
+                <li>{{ t.project_1_li_2 if t.project_1_li_2 else "Technical supervision and quality control." }}</li>
+                <li>{{ t.project_1_li_3 if t.project_1_li_3 else "Preservation of historic facade with modern systems integration." }}</li>
             </ul>
+
         </div>
     </div>
 
+    <!-- PROJECT 2 -->
     <div class="project-card">
+
         <div class="project-header">
-            <h3 class="project-title">Отельный комплекс (Satyaminds)</h3>
-            <span class="project-role">Управляющий работами</span>
-            <span class="project-loc">📍 Португалия | 2022</span>
+
+            <h3 class="project-title">
+                {{ t.project_2_title if t.project_2_title else "Hotel Complex (Satyaminds)" }}
+            </h3>
+
+            <span class="project-role">
+                {{ t.project_manager_role if t.project_manager_role else "Construction Manager" }}
+            </span>
+
+            <span class="project-loc">
+                📍 Portugal | 2022
+            </span>
+
         </div>
+
         <div class="project-desc">
-            <p>Масштабный проект на территории 150 га (зона застройки 30 га).</p>
+
+            <p>
+                {{ t.project_2_desc if t.project_2_desc else
+                "Large-scale development project covering 150 hectares (30 hectares construction zone)." }}
+            </p>
+
             <ul>
-                <li>Организация строительной площадки и логистики.</li>
-                <li>Координация работы субподрядчиков на большой территории.</li>
-                <li>Контроль соответствия работ португальским строительным нормам.</li>
+                <li>{{ t.project_2_li_1 if t.project_2_li_1 else "Site organization and logistics management." }}</li>
+                <li>{{ t.project_2_li_2 if t.project_2_li_2 else "Coordination of subcontractors." }}</li>
+                <li>{{ t.project_2_li_3 if t.project_2_li_3 else "Compliance with Portuguese construction standards." }}</li>
             </ul>
+
         </div>
     </div>
-    
-    <!-- 2. Международный опыт (Показываем масштаб) -->
-    <h2 class="section-title">🌍 Международный опыт (Украина)</h2>
+
+    <!-- INTERNATIONAL EXPERIENCE -->
+    <h2 class="section-title">
+        🌍 {{ t.projects_international_title if t.projects_international_title else "International Experience" }}
+    </h2>
+
     <p style="margin-bottom: 20px; color: #666;">
-        Более 20 лет работы с объектами высшей категории сложности (СС2–СС3) в качестве собственника компании «БРИК» и главного инженера.
+        {{ t.projects_international_text if t.projects_international_text else
+        "More than 20 years working on complex Category CC2–CC3 projects as company owner and chief engineer." }}
     </p>
 
+    <!-- STATS -->
     <div class="stats-grid">
+
         <div class="stat-box">
             <span class="stat-number">25+</span>
-            <span class="stat-label">Лет в строительстве</span>
+            <span class="stat-label">
+                {{ t.stat_years if t.stat_years else "Years of experience" }}
+            </span>
         </div>
+
         <div class="stat-box">
-            <span class="stat-number">СС3</span>
-            <span class="stat-label">Категория сложности (Ведущий инженер)</span>
+            <span class="stat-number">CC3</span>
+            <span class="stat-label">
+                {{ t.stat_category if t.stat_category else "Engineering category" }}
+            </span>
         </div>
+
         <div class="stat-box">
             <span class="stat-number">10+</span>
-            <span class="stat-label">Торговых центров и заводов</span>
+            <span class="stat-label">
+                {{ t.stat_projects if t.stat_projects else "Large industrial projects" }}
+            </span>
         </div>
+
     </div>
 
+    <!-- KEY PROJECT TYPES -->
     <div class="project-card" style="border-left: 4px solid var(--accent-color);">
-        <h3 class="project-title" style="margin-bottom: 15px;">Ключевые объекты портфолио</h3>
+
+        <h3 class="project-title" style="margin-bottom: 15px;">
+            {{ t.key_projects_title if t.key_projects_title else "Key Project Types" }}
+        </h3>
+
         <div class="project-desc">
+
             <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                <li>🏢 Торгово-развлекательные комплексы</li>
-                <li>🏭 Производственные помещения и заводы</li>
-                <li>💼 Офисные центры класса А</li>
-                <li>💧 Промышленные очистные сооружения</li>
-                <li>🏚 Реставрация памятников архитектуры</li>
-                <li>🏗 Многофункциональные жилые комплексы</li>
+
+                <li>{{ t.key_1 if t.key_1 else "Shopping malls and retail complexes" }}</li>
+                <li>{{ t.key_2 if t.key_2 else "Industrial factories and plants" }}</li>
+                <li>{{ t.key_3 if t.key_3 else "Office buildings (Class A)" }}</li>
+                <li>{{ t.key_4 if t.key_4 else "Water treatment facilities" }}</li>
+                <li>{{ t.key_5 if t.key_5 else "Heritage restoration projects" }}</li>
+                <li>{{ t.key_6 if t.key_6 else "Residential complexes" }}</li>
+
             </ul>
+
         </div>
     </div>
 
-    <!-- 3. Квалификация (Доверие) -->
-    <h2 class="section-title">🎓 Лицензии и Образование</h2>
-    
+    <!-- QUALIFICATIONS -->
+    <h2 class="section-title">
+        🎓 {{ t.qualifications_title if t.qualifications_title else "Licenses & Education" }}
+    </h2>
+
     <ul class="cert-list">
+
         <li class="cert-item">
             <div class="cert-icon">📜</div>
             <div class="cert-text">
                 <h4>Ordem dos Engenheiros</h4>
-                <p>Membro Efetivo (Nível E1). Членство с 2023 г.</p>
+                <p>{{ t.cert_oe if t.cert_oe else "Full member (Membro Efetivo), since 2023." }}</p>
             </div>
         </li>
+
         <li class="cert-item">
             <div class="cert-icon">🎓</div>
             <div class="cert-text">
-                <h4>Признанный диплом (Licenciado)</h4>
-                <p>Процесс эквивалентности завершен в 2022 г. (№120220284376)</p>
+                <h4>{{ t.cert_diploma_title if t.cert_diploma_title else "Recognized Diploma" }}</h4>
+                <p>{{ t.cert_diploma_text if t.cert_diploma_text else "Equivalence completed in 2022." }}</p>
             </div>
         </li>
+
         <li class="cert-item">
             <div class="cert-icon">🏗</div>
             <div class="cert-text">
-                <h4>Инженер технадзора (СС3)</h4>
-                <p>Сертификат ведущего инженера (Украина, с 2014 г.)</p>
+                <h4>{{ t.cert_engineer_title if t.cert_engineer_title else "Senior Civil Engineer" }}</h4>
+                <p>{{ t.cert_engineer_text if t.cert_engineer_text else "CC3 certified engineer." }}</p>
             </div>
         </li>
+
         <li class="cert-item">
             <div class="cert-icon">🗣</div>
             <div class="cert-text">
-                <h4>Языки</h4>
-                <p>Португальский (B1.2), Английский (B2), Русский/Украинский (Native)</p>
+                <h4>{{ t.languages_title if t.languages_title else "Languages" }}</h4>
+                <p>{{ t.languages_text if t.languages_text else "PT, EN, RU, UA" }}</p>
             </div>
         </li>
+
     </ul>
 
 </div>
