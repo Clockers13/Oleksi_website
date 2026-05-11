@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template, redirect, url_for, abort
 from translations import translations
+from flask import make_response 
+from datetime import datetime  
 
 app = Flask(__name__)
 
@@ -100,6 +102,48 @@ def page_not_found(error):
         '404.html'
     ), 404
 
+@app.route('/robots.txt')
+def robots_txt():
+    content = """User-agent: *
+Allow: /
+Allow: /static/
+
+Sitemap: https://oleksi-website.onrender.com/sitemap.xml
+"""
+    response = make_response(content)
+    response.headers["Content-Type"] = "text/plain"
+    return response
+
+@app.route('/sitemap.xml')
+def sitemap():
+    base_url = "https://oleksi-website.onrender.com"
+    langs = ['pt', 'en', 'ru', 'uk']
+    pages_list = ['services', 'projects', 'contacts'] 
+    
+    pages = []
+    today = datetime.now().strftime('%Y-%m-%d')
+
+    for lang in langs:
+        pages.append({
+            'loc': f"{base_url}/{lang}/",
+            'lastmod': today,
+            'priority': '1.0',
+            'alternates': [f"{base_url}/{l}/" for l in langs]
+        })
+
+    for p in pages_list:
+        for lang in langs:
+            pages.append({
+                'loc': f"{base_url}/{lang}/{p}",
+                'lastmod': today,
+                'priority': '0.8',
+                'alternates': [f"{base_url}/{l}/{p}" for l in langs]
+            })
+
+    sitemap_xml = render_template('sitemap.xml', pages=pages)
+    response = make_response(sitemap_xml)
+    response.headers["Content-Type"] = "application/xml"
+    return response
 
 # START
 if __name__ == "__main__":
