@@ -109,7 +109,38 @@ translations = {
     "cert_engineer_text": "Сертификация Украина",
 
     "languages_title": "Языки",
-    "languages_text": "Русский, Украинский, Английский, Португальский"
+    "languages_text": "Русский, Украинский, Английский, Португальский",
+
+    #SERVICES
+    "services_title": "Услуги инженера-строителя",
+    "services_subtitle": "Профессиональное сопровождение строительства и ремонта в Португалии. Работаю с частными клиентами и компаниями.",
+
+    "service_1_title": "Технический надзор",
+    "service_1_desc": "Защита ваших интересов на стройке. Я ваши глаза и уши.",
+    "service_1_li_1": "Контроль качества и сроков выполнения работ",
+    "service_1_li_2": "Приемка скрытых работ и этапов",
+    "service_1_li_3": "Проверка реальных объемов и смет",
+
+    "service_2_title": "Управление строительством",
+    "service_2_desc": "Полная организация процесса: от котлована до сдачи ключей.",
+    "service_2_li_1": "Планирование, логистика и снабжение",
+    "service_2_li_2": "Управление бригадами и субподрядчиками",
+    "service_2_li_3": "Оперативные технические решения на площадке",
+    "service_2_li_4": "Ответственность за безопасность и нормы",
+
+    "service_3_title": "Лицензирование и консалтинг",
+    "service_3_desc": "Бюрократическая и юридическая поддержка строительных проектов.",
+    "service_3_li_1": "Получение лицензий (Alvará, licenciamento)",
+    "service_3_li_2": "Согласования с муниципалитетом",
+    "service_3_li_3": "Технический аудит недвижимости перед покупкой",
+    "service_3_li_4": "Сдача объектов в эксплуатацию",
+
+    "service_4_title": "Проектирование и реконструкция",
+    "service_4_desc": "Ремонт и адаптация жилых и исторических зданий.",
+    "service_4_li_1": "Реконструкция и ремонт",
+    "service_4_li_2": "Расчёт усиления конструкций",
+    "service_4_li_3": "Подготовка технической документации",
+    "service_4_li_4": "Повышение энергоэффективности"
     },
     "en": {
     # NAV
@@ -220,7 +251,37 @@ translations = {
     "cert_engineer_text": "Ukrainian certification",
 
     "languages_title": "Languages",
-    "languages_text": "Russian, Ukrainian, English, Portuguese"
+    "languages_text": "Russian, Ukrainian, English, Portuguese",
+    #SERVICES
+    "services_title": "Construction Engineering Services",
+    "services_subtitle": "Professional construction supervision and engineering support in Portugal for private and corporate clients.",
+
+    "service_1_title": "Construction Supervision",
+    "service_1_desc": "Protection of your interests on site. I act as your technical representative.",
+    "service_1_li_1": "Quality and deadline control",
+    "service_1_li_2": "Inspection of hidden works and stages",
+    "service_1_li_3": "Verification of quantities and budgets",
+
+    "service_2_title": "Construction Management",
+    "service_2_desc": "Full project coordination from foundation to handover.",
+    "service_2_li_1": "Planning, logistics and procurement",
+    "service_2_li_2": "Team and subcontractor management",
+    "service_2_li_3": "On-site technical decisions",
+    "service_2_li_4": "Safety and compliance responsibility",
+
+    "service_3_title": "Licensing & Consulting",
+    "service_3_desc": "Legal and administrative support for construction projects.",
+    "service_3_li_1": "Licensing (Alvará, permits)",
+    "service_3_li_2": "Municipal approvals",
+    "service_3_li_3": "Property technical audit before purchase",
+    "service_3_li_4": "Project handover and certification",
+
+    "service_4_title": "Design & Renovation",
+    "service_4_desc": "Renovation and adaptation of residential and historical buildings.",
+    "service_4_li_1": "Renovation and reconstruction",
+    "service_4_li_2": "Structural reinforcement calculations",
+    "service_4_li_3": "Technical documentation preparation",
+    "service_4_li_4": "Energy efficiency improvements"
     },
 
     "pt": {
@@ -332,7 +393,37 @@ translations = {
     "cert_engineer_text": "Certificação da Ucrânia",
 
     "languages_title": "Idiomas",
-    "languages_text": "Russo, Ucraniano, Inglês, Português"
+    "languages_text": "Russo, Ucraniano, Inglês, Português",
+    #SERVICES
+    "services_title": "Serviços de Engenharia Civil",
+    "services_subtitle": "Acompanhamento profissional de obras e apoio técnico em Portugal para clientes particulares e empresas.",
+
+    "service_1_title": "Fiscalização de Obra",
+    "service_1_desc": "Proteção dos seus interesses na obra. Atuo como seu representante técnico.",
+    "service_1_li_1": "Controlo de qualidade e prazos",
+    "service_1_li_2": "Verificação de trabalhos ocultos e fases",
+    "service_1_li_3": "Controlo de medições e orçamento",
+
+    "service_2_title": "Gestão de Obra",
+    "service_2_desc": "Coordenação completa do projeto desde a fundação até à entrega.",
+    "service_2_li_1": "Planeamento, logística e aprovisionamento",
+    "service_2_li_2": "Gestão de equipas e subempreiteiros",
+    "service_2_li_3": "Decisões técnicas em obra",
+    "service_2_li_4": "Responsabilidade de segurança e normas",
+
+    "service_3_title": "Licenciamento e Consultoria",
+    "service_3_desc": "Apoio legal e administrativo para projetos de construção.",
+    "service_3_li_1": "Licenciamento (Alvará, autorizações)",
+    "service_3_li_2": "Aprovações camarárias",
+    "service_3_li_3": "Auditoria técnica antes da compra",
+    "service_3_li_4": "Entrega e certificação da obra",
+
+    "service_4_title": "Projeto e Reabilitação",
+    "service_4_desc": "Reabilitação e adaptação de edifícios residenciais e históricos.",
+    "service_4_li_1": "Reabilitação e reconstrução",
+    "service_4_li_2": "Cálculo de reforço estrutural",
+    "service_4_li_3": "Preparação de documentação técnica",
+    "service_4_li_4": "Eficiência energética"
     },
 
     "uk": {
@@ -444,6 +535,36 @@ translations = {
     "cert_engineer_text": "Сертифікація Україна",
 
     "languages_title": "Мови",
-    "languages_text": "Російська, Українська, Англійська, Португальська"
+    "languages_text": "Російська, Українська, Англійська, Португальська",
+    #SERVICES
+    "services_title": "Послуги інженера-будівельника",
+    "services_subtitle": "Професійний супровід будівництва та технічна підтримка в Португалії для приватних і корпоративних клієнтів.",
+
+    "service_1_title": "Технічний нагляд",
+    "service_1_desc": "Захист ваших інтересів на будівництві. Я ваш технічний представник.",
+    "service_1_li_1": "Контроль якості та строків",
+    "service_1_li_2": "Приймання прихованих робіт і етапів",
+    "service_1_li_3": "Перевірка обсягів і кошторисів",
+
+    "service_2_title": "Управління будівництвом",
+    "service_2_desc": "Повна координація проєкту від фундаменту до здачі.",
+    "service_2_li_1": "Планування, логістика та постачання",
+    "service_2_li_2": "Управління бригадами та підрядниками",
+    "service_2_li_3": "Оперативні технічні рішення на майданчику",
+    "service_2_li_4": "Відповідальність за безпеку та норми",
+
+    "service_3_title": "Ліцензування та консалтинг",
+    "service_3_desc": "Юридична та адміністративна підтримка будівельних проєктів.",
+    "service_3_li_1": "Отримання ліцензій (Alvará, дозволи)",
+    "service_3_li_2": "Муніципальні погодження",
+    "service_3_li_3": "Технічний аудит нерухомості перед купівлею",
+    "service_3_li_4": "Здача об’єктів в експлуатацію",
+
+    "service_4_title": "Проєктування та реконструкція",
+    "service_4_desc": "Реконструкція та адаптація житлових і історичних будівель.",
+    "service_4_li_1": "Реконструкція та ремонт",
+    "service_4_li_2": "Розрахунок підсилення конструкцій",
+    "service_4_li_3": "Підготовка технічної документації",
+    "service_4_li_4": "Підвищення енергоефективності"
     }
 }
