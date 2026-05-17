@@ -114,30 +114,37 @@ Sitemap: https://oleksi-website.onrender.com/sitemap.xml
     response.headers["Content-Type"] = "text/plain"
     return response
 
-@app.route('/sitemap.xml')
+@app.route('/sitemap.xml', strict_slashes=False)
 def sitemap():
     base_url = "https://oleksi-website.onrender.com"
     langs = ['pt', 'en', 'ru', 'uk']
-    pages_list = ['services', 'projects', 'contacts'] 
+    pages_list = ['', 'services', 'projects', 'contacts'] # Добавили пустую строку для главных страниц
     
     pages = []
     today = datetime.now().strftime('%Y-%m-%d')
 
-    for lang in langs:
-        pages.append({
-            'loc': f"{base_url}/{lang}/",
-            'lastmod': today,
-            'priority': '1.0',
-            'alternates': [f"{base_url}/{l}/" for l in langs]
-        })
-
     for p in pages_list:
+        path = f"{p}" if p else ""
         for lang in langs:
+            loc = f"{base_url}/{lang}/{path}"
+            
+            alternates = []
+            for l in langs:
+                alternates.append({
+                    'lang': l,
+                    'href': f"{base_url}/{l}/{path}"
+                })
+            
+            alternates.append({
+                'lang': 'x-default',
+                'href': f"{base_url}/pt/{path}"
+            })
+            
             pages.append({
-                'loc': f"{base_url}/{lang}/{p}",
+                'loc': loc,
                 'lastmod': today,
-                'priority': '0.8',
-                'alternates': [f"{base_url}/{l}/{p}" for l in langs]
+                'priority': '1.0' if not p else '0.8',
+                'alternates': alternates
             })
 
     sitemap_xml = render_template('sitemap.xml', pages=pages)
